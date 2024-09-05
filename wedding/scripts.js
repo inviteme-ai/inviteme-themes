@@ -24,27 +24,26 @@ document
       response: response,
       subdomain: name, // Pass the extracted name as subdomain
     };
-
-    fetch(`/wedding-rsvp/${name}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Handle the response from the server
-        if (data.success) {
-          alert("Form submitted successfully!");
-        } else {
-          alert("Error submitting form.");
-        }
-      })
-      .catch((error) => {
-        alert("There was an error submitting the form. Please try again.");
-        console.error(error);
-      });
+fetch(`https://rsvp.inviteme.ai/wedding-rsvp/${name}`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(formData),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    // Handle the response from the server
+    if (data.success) {
+      alert("Form submitted successfully!");
+    } else {
+      alert("Error submitting form.");
+    }
+  })
+  .catch((error) => {
+    alert("There was an error submitting the form. Please try again.");
+    console.error(error);
+  });
   });
 
   function pathName(){
