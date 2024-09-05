@@ -1,12 +1,13 @@
-// Extract the dynamic 'name' from the current URL
-const path = window.location.pathname;
-const name = path.split("/")[1]; // Extracts 'yididiya' from URL
 
 // send RSVP form data
 document
   .getElementById("contactForm")
   .addEventListener("submit", function (event) {
     event.preventDefault();
+
+    // Extract the dynamic 'name' from the current URL
+    const path = window.location.pathname;
+    const name = path.split("/")[1]; // Extracts 'yididiya' from URL
 
     const response = document.querySelector(
       'input[name="response"]:checked'
@@ -45,3 +46,12 @@ document
         console.error(error);
       });
   });
+
+  function pathName(){
+      // Extract the dynamic 'name' from the current URL
+       const path = window.location.pathname;
+       const name = path.split("/")[1]; // Extracts 'yididiya' from URL
+       document.getElementById("subdomain").value = name;
+  }
+
+  pathName();
