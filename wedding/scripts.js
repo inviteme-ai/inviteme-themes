@@ -1,16 +1,8 @@
-const button = document.getElementById("startBtn");
-
-button.addEventListener("click", function () {
-  alert("The button clicked!!");
-});
-
 // send RSVP form data
-
-function formData(){
 document
   .getElementById("contactForm")
   .addEventListener("submit", function (event) {
-    event.preventDefault();
+  //  event.preventDefault();
 
     // Extract the dynamic 'name' from the current URL
     const path = window.location.pathname;
@@ -53,7 +45,3 @@ document
         console.error(error);
       });
   });
-
-}
-
-formData();
