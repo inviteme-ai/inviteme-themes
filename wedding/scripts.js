@@ -6,6 +6,7 @@ button.addEventListener("click", function () {
 
 // send RSVP form data
 
+function formData(){
 document
   .getElementById("contactForm")
   .addEventListener("submit", function (event) {
@@ -40,10 +41,19 @@ document
     })
       .then((response) => response.json())
       .then((data) => {
-        alert("Form submitted successfully!");
+        // Handle the response from the server
+        if (data.success) {
+          alert("Form submitted successfully!");
+        } else {
+          alert("Error submitting form.");
+        }
       })
       .catch((error) => {
         alert("There was an error submitting the form. Please try again.");
         console.error(error);
       });
   });
+
+}
+
+formData();
