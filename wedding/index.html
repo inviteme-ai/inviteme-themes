@@ -40,19 +40,27 @@
     </section>
     
     <section id="contact">
-        <h2>Contact Us</h2>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
+      <h2>Contact Us</h2>
+      <form action="/wedding-rsvp/<%= customer.OrderId %>" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="Name" required />
+        <label for="no">No. of guests:</label>
+        <input type="number" id="no" name="NumofGuests" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" required />
+        <label for="phone">Phone Number:</label>
+        <input type="number" id="phone" name="Phone" required />
+        <label for="dietary">Dietary Restrictions:</label>
+        <input type="text" id="dietary" name="dietary" />
+        <label for="accomodation">Accomodation Request:</label>
+        <input type="text" id="accomodation" name="accomodation" />
+        <label for="message">Message:</label>
+        <textarea id="message" name="Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
     </section>
     
     <footer>
         <p>&copy; 2024 Katy's Birthday Party Planner. All rights reserved.</p>
     </footer>
-    
+ <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
