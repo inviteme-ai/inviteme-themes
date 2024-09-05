@@ -1,11 +1,11 @@
+// Add click listener to the submit button
+  document.getElementById('submitBtn').addEventListener('click', function(event) {
+    event.preventDefault(); 
+    handleSubmit(); 
+  });
 
  function handleSubmit() {
-
 // send RSVP form data
-document
-  .getElementById("contactForm")
-  .addEventListener("submit", function (event) {
-   event.preventDefault();
 
     // Extract the dynamic 'name' from the current URL
     const path = window.location.pathname;
@@ -46,12 +46,5 @@ fetch(`http://localhost:3000/wedding-rsvp/${name}`, {
     alert("There was an error submitting the form. Please try again.");
     console.error(error);
   });
-  });
-
 }
 
-// Add click listener to the submit button
-  document.getElementById('submitBtn').addEventListener('click', function(event) {
-    event.preventDefault(); 
-    handleSubmit(); 
-  });
