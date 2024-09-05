@@ -48,11 +48,10 @@ document
   });
 
   function pathName(){
-      // Extract the dynamic 'name' from the current URL
-       const path = window.location.pathname;
-       const name = path.split("/")[1]; // Extracts 'yididiya' from URL
-       document.getElementById("subdomain").value = name;
-       console.log(path);
+    // Extract subdomain from URL and set it in the hidden form field
+    const urlParts = window.location.pathname.split("/");
+    const subdomain = urlParts[1]; // 'yididiya' in this case
+    document.getElementById("subdomain").value = subdomain;
   }
 
   pathName();
