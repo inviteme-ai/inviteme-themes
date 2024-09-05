@@ -13,7 +13,7 @@ document
 
     // Extract the dynamic 'name' from the current URL
     const path = window.location.pathname;
-    const name = path.split("/")[1];
+    const name = path.split("/")[1]; // Extracts 'yididiya' from URL
 
     const response = document.querySelector(
       'input[name="response"]:checked'
@@ -28,19 +28,22 @@ document
       accomodation: document.getElementById("accomodation").value,
       Message: document.getElementById("message").value,
       response: response,
-      subdomain:name
+      subdomain: name, // Pass the extracted name as subdomain
     };
 
-    console.log(name);
-    console.log(name);
-
-    // Post to the dynamic wedding-rsvp route
-    axios
-      .post(`/wedding-rsvp`, formData)
-      .then(function (response) {
-        alert("Form submitted successfully!"); 
+    fetch("/wedding-rsvp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert("Form submitted successfully!");
       })
-      .catch(function (error) {
-        alert("There was an error submitting the form. Please try again."); 
+      .catch((error) => {
+        alert("There was an error submitting the form. Please try again.");
+        console.error(error);
       });
   });
