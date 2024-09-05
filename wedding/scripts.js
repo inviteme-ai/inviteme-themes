@@ -31,6 +31,9 @@ document
       subdomain:name
     };
 
+    console.log(name);
+    console.log(name);
+
     // Post to the dynamic wedding-rsvp route
     axios
       .post(`/wedding-rsvp`, formData)
