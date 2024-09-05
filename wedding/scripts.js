@@ -28,11 +28,12 @@ document
       accomodation: document.getElementById("accomodation").value,
       Message: document.getElementById("message").value,
       response: response,
+      subdomain:name
     };
 
     // Post to the dynamic wedding-rsvp route
     axios
-      .post(`/wedding-rsvp/${name}`, formData)
+      .post(`/wedding-rsvp`, formData)
       .then(function (response) {
         alert("Form submitted successfully!"); 
       })
