@@ -9,11 +9,11 @@ button.addEventListener("click", function () {
 document
   .getElementById("contactForm")
   .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent the form from submitting the default way
+    event.preventDefault();
 
     // Extract the dynamic 'name' from the current URL
     const path = window.location.pathname;
-    const name = path.split("/")[1]; // This assumes the URL structure is rsvp.inviteme.ai/name
+    const name = path.split("/")[1];
 
     const formData = {
       Name: document.getElementById("name").value,
@@ -29,9 +29,9 @@ document
     axios
       .post(`/wedding-rsvp/${name}`, formData)
       .then(function (response) {
-        alert("Form submitted successfully!"); // Success alert
+        alert("Form submitted successfully!"); 
       })
       .catch(function (error) {
-        alert("There was an error submitting the form. Please try again."); // Error alert
+        alert("There was an error submitting the form. Please try again."); 
       });
   });
