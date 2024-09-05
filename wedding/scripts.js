@@ -52,6 +52,7 @@ document
        const path = window.location.pathname;
        const name = path.split("/")[1]; // Extracts 'yididiya' from URL
        document.getElementById("subdomain").value = name;
+       console.log(path);
   }
 
   pathName();
