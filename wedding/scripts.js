@@ -2,7 +2,7 @@
 document
   .getElementById("contactForm")
   .addEventListener("submit", function (event) {
-  //  event.preventDefault();
+   event.preventDefault();
 
     // Extract the dynamic 'name' from the current URL
     const path = window.location.pathname;
