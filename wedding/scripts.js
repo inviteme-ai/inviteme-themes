@@ -15,6 +15,10 @@ document
     const path = window.location.pathname;
     const name = path.split("/")[1];
 
+    const response = document.querySelector(
+      'input[name="response"]:checked'
+    ).value;
+
     const formData = {
       Name: document.getElementById("name").value,
       NumofGuests: document.getElementById("no").value,
@@ -23,6 +27,7 @@ document
       dietary: document.getElementById("dietary").value,
       accomodation: document.getElementById("accomodation").value,
       Message: document.getElementById("message").value,
+      response: response,
     };
 
     // Post to the dynamic wedding-rsvp route
