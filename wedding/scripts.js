@@ -25,7 +25,7 @@ document
       subdomain: name, // Pass the extracted name as subdomain
     };
 
-    fetch("/wedding-rsvp", {
+    fetch(`/wedding-rsvp/${name}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
