@@ -1,4 +1,6 @@
 
+ function handleSubmit() {
+
 // send RSVP form data
 document
   .getElementById("contactForm")
@@ -46,12 +48,10 @@ fetch(`http://localhost:3000/wedding-rsvp/${name}`, {
   });
   });
 
-  function pathName(){
-    // Extract subdomain from URL and set it in the hidden form field
-    const urlParts = window.location.pathname.split("/");
-    const subdomain = urlParts[1]; // 'yididiya' in this case
-    document.getElementById("subdomain").value = subdomain;
-    console.log(subdomain);
-  }
+}
 
-  pathName();
+// Add click listener to the submit button
+  document.getElementById('submitBtn').addEventListener('click', function(event) {
+    event.preventDefault(); 
+    handleSubmit(); 
+  });
