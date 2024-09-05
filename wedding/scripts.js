@@ -3,7 +3,7 @@
 document
   .getElementById("contactForm")
   .addEventListener("submit", function (event) {
-    event.preventDefault();
+   // event.preventDefault();
 
     // Extract the dynamic 'name' from the current URL
     const path = window.location.pathname;
@@ -52,6 +52,7 @@ document
     const urlParts = window.location.pathname.split("/");
     const subdomain = urlParts[1]; // 'yididiya' in this case
     document.getElementById("subdomain").value = subdomain;
+    console.log(subdomain);
   }
 
   pathName();
