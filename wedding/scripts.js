@@ -24,7 +24,7 @@ document
       response: response,
       subdomain: name, // Pass the extracted name as subdomain
     };
-fetch(`https://rsvp.inviteme.ai/wedding-rsvp/${name}`, {
+fetch(`http://localhost:3000/wedding-rsvp/${name}`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
