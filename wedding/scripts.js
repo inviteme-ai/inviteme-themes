@@ -9,7 +9,7 @@
 
     // Extract the dynamic 'name' from the current URL
     const path = window.location.pathname;
-    const name = path.split("/")[1]; // Extracts 'yididiya' from URL
+    const name = path.split("/")[1]; 
 
     const response = document.querySelector(
       'input[name="response"]:checked'
