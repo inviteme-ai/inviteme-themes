@@ -116,13 +116,16 @@
         // Handle the response from the server
         if (data.success) {
           alert("Form submitted successfully!");
+           window.location.reload();
         } else {
           alert("Error submitting form.");
+           window.location.reload();
         }
       })
       .catch((error) => {
         alert("Guest with this email is already registered.");
         console.error(error);
+         window.location.reload();
       });
   }
 //});
