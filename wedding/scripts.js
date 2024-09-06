@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("submitBtn")
     .addEventListener("click", function (event) {
       event.preventDefault();
+      console.log("Button clicked"); // Add this line
       handleSubmit();
     });
 
