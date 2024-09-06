@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function () {
 document
   .getElementById("contactForm")
   .addEventListener("submit", function (event) {
@@ -37,3 +38,4 @@ document
     };
     xhr.send(JSON.stringify(formData));
   });
+});
