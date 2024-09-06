@@ -1,58 +1,132 @@
+<header>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <section id="home" class="hero-section">
-        <div id="contentId">
-            <h1>Welcome to Katy's Birthday Party Planner</h1>
-            <p>Your one-stop solution for an amazing birthday party!</p>
-        </div>
-        <button id="startBtn">Get Started</button>
-    </section>
-    
-    <section id="about">
-        <h2>About Us</h2>
-        <p>We specialize in planning and organizing unforgettable birthday parties for kids.</p>
-    </section>
-    
-    <section id="services">
-        <h2>Our Services</h2>
-        <div class="service">
-            <h3>Party Planning</h3>
-            <p>Complete planning from start to finish.</p>
-        </div>
-        <div class="service">
-            <h3>Decorations</h3>
-            <p>Beautiful and unique decorations for your party.</p>
-        </div>
-        <div class="service">
-            <h3>Entertainment</h3>
-            <p>Fun activities and entertainment for kids.</p>
-        </div>
-    </section>
-    
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
-    
-    <footer>
-        <p>&copy; 2024 Katy's Birthday Party Planner. All rights reserved.</p>
-    </footer>
-    
+<section id="home" class="hero-section">
+  <div id="contentId">
+    <h1>Welcome to Katy's <b>Birthday</b> Event Planner</h1>
+    <p>Your one-stop solution for an amazing birthday party!</p>
+  </div>
+  <button id="startBtn">Get Started</button>
+</section>
+
+<section id="about">
+  <h2>About Us</h2>
+  <p>
+    We specialize in planning and organizing unforgettable birthday parties for
+    kids.
+  </p>
+</section>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="service">
+    <h3>Party Planning</h3>
+    <p>Complete planning from start to finish.</p>
+  </div>
+  <div class="service">
+    <h3>Decorations</h3>
+    <p>Beautiful and unique decorations for your party.</p>
+  </div>
+  <div class="service">
+    <h3>Entertainment</h3>
+    <p>Fun activities and entertainment for kids.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <form id="contactForm" >
+    <div style="display: flex; gap: 50px">
+      <input type="radio" name="response" value="1" />
+      Gladly Accept
+      <input type="radio" name="response" value="0" />
+      Respectfully Decline
+    </div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="Name" required />
+    <label for="no">No. of guests:</label>
+    <input type="number" id="no" name="NumofGuests" required />
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="Email" required />
+    <label for="phone">Phone Number:</label>
+    <input type="number" id="phone" name="Phone" required />
+    <label for="dietary">Dietary Restrictions:</label>
+    <input type="text" id="dietary" name="dietary" />
+    <label for="accomodation">Accomodation Request:</label>
+    <input type="text" id="accomodation" name="accomodation" />
+    <label for="message">Message:</label>
+    <textarea id="message" name="Message" required></textarea>
+    <button type="button" id="submitBtn">Send</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2024 Katy's Birthday Party Planner. All rights reserved.</p>
+</footer>
+
+<script>
+ // document.addEventListener("DOMContentLoaded", function () {
+  document
+    .getElementById("submitBtn")
+    .addEventListener("click", function (event) {
+      event.preventDefault();
+        console.log("Button clicked"); // Add this line
+      handleSubmit();
+    });
+
+  function handleSubmit() {
+    // send RSVP form data
+
+    // Extract the dynamic 'name' from the current URL
+    const path = window.location.pathname;
+    const name = path.split("/")[1];
+
+    const response = document.querySelector(
+      'input[name="response"]:checked'
+    ).value;
+
+    const formData = {
+      Name: document.getElementById("name").value,
+      NumofGuests: document.getElementById("no").value,
+      Email: document.getElementById("email").value,
+      Phone: document.getElementById("phone").value,
+      dietary: document.getElementById("dietary").value,
+      accomodation: document.getElementById("accomodation").value,
+      Message: document.getElementById("message").value,
+      response: response,
+      subdomain: name, // Pass the extracted name as subdomain
+    };
+    fetch(`/birthday-rsvp/${name}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle the response from the server
+        if (data.success) {
+          alert("Form submitted successfully!");
+           window.location.reload();
+        } else {
+          alert("Error submitting form.");
+           window.location.reload();
+        }
+      })
+      .catch((error) => {
+       // alert("Guest with this email is already registered.");
+        console.error(error);
+         window.location.reload();
+      });
+  }
+//});
+</script>
