@@ -12,7 +12,10 @@
 <section id="home" class="hero-section">
   <div id="contentId">
     <h1>Welcome to Katy's <b>Wedding</b> Event Planner</h1>
-    <p>Your one-stop solution for an amazing birthday party!</p>
+    <hr>
+    <p><%= customer.FullName %></p>
+    <p><%= customer.Email %></p>
+    <p><%= customer.BrideName %></p>
   </div>
   <button id="startBtn">Get Started</button>
 </section>
@@ -42,7 +45,7 @@
 </section>
 
 <section id="contact">
-  <h2>Contact Us</h2>
+  <h2>Guest RSVP Form</h2>
   <form id="contactForm" >
     <div style="display: flex; gap: 50px">
       <input type="radio" name="response" value="1" />
